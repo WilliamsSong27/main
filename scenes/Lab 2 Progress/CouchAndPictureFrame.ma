@@ -1,6 +1,6 @@
 //Maya ASCII 2025ff03 scene
-//Name: ProjectOne.ma
-//Last modified: Sun, Jan 26, 2025 07:18:14 PM
+//Name: CouchAndPictureFrame.ma
+//Last modified: Sun, Jan 26, 2025 07:25:13 PM
 //Codeset: 1252
 requires maya "2025ff03";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiImagerDenoiserOidn"
@@ -11,12 +11,12 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202409190603-cbdc5a7e54";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19045)";
-fileInfo "UUID" "2701B4BD-43AD-01D1-C9CA-AF9BFB01DD90";
+fileInfo "UUID" "BC3C2EED-4559-B5A3-14ED-55A5B7A118B1";
 createNode transform -s -n "persp";
 	rename -uid "FFA8D883-4A27-A9E4-C7B0-BDACF41A6B9E";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -8.4582884576153283 2.3857327048826118 -2.8843091342772871 ;
-	setAttr ".r" -type "double3" -2.138352763908236 -96.199999999880532 0 ;
+	setAttr ".t" -type "double3" -8.4726489194193793 2.880237777019246 -2.3892803781152314 ;
+	setAttr ".r" -type "double3" -4.5383527638940917 -93.799999999877073 0 ;
 	setAttr ".rp" -type "double3" 0 0 8.8817841970012523e-16 ;
 	setAttr ".rpt" -type "double3" -8.746629228662527e-16 7.9546155326435322e-17 -7.5589808950376475e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
@@ -1814,11 +1814,11 @@ createNode camera -n "bottomShape" -p "bottom";
 	setAttr ".hc" -type "string" "viewSet -bo %camera";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
-createNode transform -n "Coach";
+createNode transform -n "Couch";
 	rename -uid "445C738D-4896-0D85-64C4-86B5E97C839F";
 	setAttr ".rp" -type "double3" 1.5 0.050230178982019424 -2.0041463375091553 ;
 	setAttr ".sp" -type "double3" 1.5 0.050230178982019424 -2.0041463375091553 ;
-createNode transform -n "BaseCouch01" -p "Coach";
+createNode transform -n "BaseCouch01" -p "Couch";
 	rename -uid "3C5B568D-4A03-F5A0-38F5-0FB0EA0DF656";
 	setAttr -av ".v";
 	setAttr ".rp" -type "double3" 1.5 0.24014228972582147 -0.46067452430725098 ;
@@ -1871,7 +1871,7 @@ createNode mesh -n "BaseCouch01Shape" -p "BaseCouch01";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "BaseCouch02" -p "Coach";
+createNode transform -n "BaseCouch02" -p "Couch";
 	rename -uid "ACEA1364-4F70-B8E1-B17F-D3ACB8974C40";
 	setAttr -av ".v";
 	setAttr ".rp" -type "double3" 1.5000000000000036 0.24014228972582144 -2.0041462776588412 ;
@@ -1924,7 +1924,7 @@ createNode mesh -n "BaseCouchShape2" -p "BaseCouch02";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "Cushion01" -p "Coach";
+createNode transform -n "Cushion01" -p "Couch";
 	rename -uid "2D19A2CC-4A76-698C-1264-F294C27A5FD1";
 	setAttr -av ".v";
 	setAttr ".rp" -type "double3" 1.5000000000000053 0.24478282331618328 -2.000000000000008 ;
@@ -2462,7 +2462,7 @@ createNode mesh -n "CushionShape1" -p "Cushion01";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "Cushion02" -p "Coach";
+createNode transform -n "Cushion02" -p "Couch";
 	rename -uid "9045E03E-4E42-0B49-A67C-8FA31A52D1AE";
 	setAttr -av ".v";
 	setAttr ".rp" -type "double3" 1.5000000000000049 0.24492113575128815 -0.46067449203701538 ;
@@ -3000,7 +3000,7 @@ createNode mesh -n "CushionShape2" -p "Cushion02";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "SideCouch01" -p "Coach";
+createNode transform -n "SideCouch01" -p "Couch";
 	rename -uid "A12B586F-4E17-B159-3F9F-0EBD00CD5AB6";
 	setAttr -av ".v";
 	setAttr ".rp" -type "double3" 1.5000000000000013 0.94791926026363238 -3.5338125228881845 ;
@@ -3194,7 +3194,7 @@ createNode mesh -n "SideCouchShape1" -p "SideCouch01";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "SideCouch02" -p "Coach";
+createNode transform -n "SideCouch02" -p "Couch";
 	rename -uid "E0EC93A8-49E6-019B-C311-6EB57E2069DB";
 	setAttr -av ".v";
 	setAttr ".rp" -type "double3" 1.5000000000000013 0.94791926026363238 -0.46067452430725231 ;
@@ -3389,7 +3389,7 @@ createNode mesh -n "SideCouchShape2" -p "SideCouch02";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "BackSideCouch" -p "Coach";
+createNode transform -n "BackSideCouch" -p "Couch";
 	rename -uid "58AAA18E-4201-46F9-602F-92B8590E22FF";
 	setAttr -av ".v";
 	setAttr ".rp" -type "double3" 2.5000000000000031 1.4786605379073334 0.016642614889314622 ;
@@ -4022,4 +4022,4 @@ connectAttr "SideCouchShape2.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "BackSideCouchShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "PictureShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "groupId5.msg" ":initialShadingGroup.gn" -na;
-// End of ProjectOne.ma
+// End of CouchAndPictureFrame.ma
