@@ -1,10 +1,11 @@
 //Maya ASCII 2025ff03 scene
 //Name: Lab 6.ma
-//Last modified: Sat, Feb 22, 2025 07:38:01 PM
+//Last modified: Fri, Feb 28, 2025 06:52:20 PM
 //Codeset: 1252
 requires maya "2025ff03";
 requires "stereoCamera" "10.0";
-requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiImagerDenoiserOidn"
+requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiSkyDomeLight"
+		 -nodeType "aiAreaLight" -nodeType "aiPhysicalSky" -nodeType "aiImagerDenoiserOidn"
 		 "mtoa" "5.4.5";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
@@ -13,17 +14,17 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202409190603-cbdc5a7e54";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19045)";
-fileInfo "UUID" "420C1C3E-4B6C-35B5-A0E4-44862578C298";
+fileInfo "UUID" "18DE4516-47B8-141B-4843-9AB49C80A85B";
 createNode transform -s -n "persp";
 	rename -uid "D0AB5559-46A4-BB29-FD56-A585D6124FC8";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -0.78830799371595217 5.0438522585348569 -16.044408196020779 ;
-	setAttr ".r" -type "double3" -14.138352723512714 3058.9999999963629 0 ;
+	setAttr ".t" -type "double3" 6.5891065034524079 5.7773711786707214 -11.396498611885143 ;
+	setAttr ".r" -type "double3" -15.938352732596369 3391.3999999985026 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "C7288014-4757-D2B1-657E-02AD5B7FB2C3";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 16.28246689331981;
+	setAttr ".coi" 17.258319571469354;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -3758,7 +3759,7 @@ createNode mesh -n "TreeShape" -p "Tree";
 	setAttr ".gtag[9].gtagcmp" -type "componentList" 7 "e[0:5]" "e[180]" "e[189]" "e[198]" "e[207]" "e[216]" "e[225]";
 	setAttr ".pv" -type "double2" 0.63421976566314697 0.88190749287605286 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 615 ".uvst[0].uvsp";
+	setAttr -s 658 ".uvst[0].uvsp";
 	setAttr ".uvst[0].uvsp[0:249]" -type "float2" 0.375 0.3125 0.41666666 0.3125
 		 0.45833331 0.3125 0.49999997 0.3125 0.54166663 0.3125 0.58333331 0.3125 0.625 0.3125
 		 0.375 0.6875 0.41666666 0.6875 0.45833331 0.6875 0.49999997 0.6875 0.54166663 0.6875
@@ -3874,7 +3875,7 @@ createNode mesh -n "TreeShape" -p "Tree";
 		 0.77878785 0.65625 0.84375 0.61874408 0.77878779 0.65625 0.84375 0.61874408 0.77878779
 		 0.65625 0.84375 0.61218953 0.92006499 0.61218953 0.92006499 0.65625 0.84375 0.65625
 		 0.84375 0.65625 0.84375 0.65625 0.84375 0.65625 0.84375 0.65625 0.84375;
-	setAttr ".uvst[0].uvsp[500:614]" 0.65625 0.84375 0.65625 0.84375 0.65625 0.84375
+	setAttr ".uvst[0].uvsp[500:657]" 0.65625 0.84375 0.65625 0.84375 0.65625 0.84375
 		 0.65625 0.84375 0.65625 0.84375 0.61874408 0.77878779 0.61874408 0.77878779 0.61874408
 		 0.77878779 0.61874408 0.77878779 0.61874408 0.77878779 0.61874408 0.77878779 0.61874408
 		 0.77878779 0.61874408 0.77878779 0.61874408 0.77878779 0.61874408 0.77878779 0.61874408
@@ -3900,7 +3901,18 @@ createNode mesh -n "TreeShape" -p "Tree";
 		 0.61218953 0.92006499 0.61218953 0.92006499 0.61218953 0.92006499 0.61218953 0.92006499
 		 0.61218953 0.92006499 0.61218953 0.92006499 0.61218953 0.92006499 0.61218953 0.92006499
 		 0.61218953 0.92006499 0.61218953 0.92006499 0.61218953 0.92006499 0.61218953 0.92006499
-		 0.61218953 0.92006499 0.61218953 0.92006499 0.61218953 0.92006499 0.61218953 0.92006499;
+		 0.61218953 0.92006499 0.61218953 0.92006499 0.61218953 0.92006499 0.61218953 0.92006499
+		 0.60868675 0.84602052 0.60868675 0.84602052 0.60868675 0.84602052 0.60868675 0.84602052
+		 0.60868675 0.84602052 0.49873608 1.032087326 0.421875 1.014191389 0.60868675 0.84602052
+		 0.48943332 0.65601921 0.60868675 0.84602052 0.48943332 0.65601921 0.42187503 0.6602205
+		 0.60868675 0.84602052 0.49873608 1.032087326 0.60868675 0.84602052 0.60868675 0.84602052
+		 0.60868675 0.84602052 0.60868675 0.84602052 0.60868675 0.84602052 0.60868675 0.84602052
+		 0.60868675 0.84602052 0.60868675 0.84602052 0.60868675 0.84602052 0.60868675 0.84602052
+		 0.60868675 0.84602052 0.60868675 0.84602052 0.60868675 0.84602052 0.60868675 0.84602052
+		 0.60868675 0.84602052 0.60868675 0.84602052 0.60868675 0.84602052 0.60868675 0.84602052
+		 0.60868675 0.84602052 0.65625 0.84375 0.61874408 0.77878779 0.61874408 0.77878779
+		 0.61874408 0.77878779 0.61874408 0.77878779 0.61874408 0.77878779 0.61218953 0.92006499
+		 0.65625 0.84375 0.61218953 0.92006499 0.61874408 0.77878779;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -5091,15 +5103,15 @@ createNode mesh -n "TreeShape" -p "Tree";
 		f 4 -659 655 -476 -658
 		mu 0 4 362 361 184 247
 		f 4 -661 657 -441 -660
-		mu 0 4 363 362 247 247
+		mu 0 4 363 362 247 615
 		f 4 -837 856 -877 -878
-		mu 0 4 456 466 476 476
+		mu 0 4 456 466 476 616
 		f 4 -898 877 -918 -928
-		mu 0 4 486 456 476 476
+		mu 0 4 486 456 616 617
 		f 4 -666 662 -459 -665
-		mu 0 4 366 365 247 247
+		mu 0 4 366 365 618 619
 		f 4 -668 664 -390 -667
-		mu 0 4 367 366 247 238
+		mu 0 4 367 366 619 238
 		f 4 -670 666 -450 -669
 		mu 0 4 368 367 238 229
 		f 4 -672 668 -363 -671
@@ -5229,25 +5241,25 @@ createNode mesh -n "TreeShape" -p "Tree";
 		f 4 -794 754 794 -775
 		mu 0 4 429 419 420 430
 		f 3 308 796 -796
-		mu 0 3 431 184 193
+		mu 0 3 431 620 621
 		f 3 335 798 -798
 		mu 0 3 202 211 432
 		f 3 362 800 -800
 		mu 0 3 220 229 433
 		f 3 389 802 -802
-		mu 0 3 247 434 238
+		mu 0 3 622 434 623
 		f 3 413 804 -804
-		mu 0 3 436 435 247
+		mu 0 3 436 435 624
 		f 3 440 806 -806
-		mu 0 3 438 437 247
+		mu 0 3 438 437 624
 		f 3 449 801 -801
-		mu 0 3 238 439 229
+		mu 0 3 625 439 626
 		f 3 458 803 -803
-		mu 0 3 441 440 247
+		mu 0 3 441 440 624
 		f 3 466 805 -805
-		mu 0 3 443 442 247
+		mu 0 3 443 442 624
 		f 3 475 795 -807
-		mu 0 3 444 247 184
+		mu 0 3 444 627 628
 		f 3 484 797 -797
 		mu 0 3 193 202 445
 		f 3 493 799 -799
@@ -5273,7 +5285,7 @@ createNode mesh -n "TreeShape" -p "Tree";
 		f 4 -836 816 836 -827
 		mu 0 4 455 465 466 456
 		f 4 659 837 -848 -808
-		mu 0 4 363 247 467 457
+		mu 0 4 363 615 467 457
 		f 4 847 838 -849 -809
 		mu 0 4 457 467 468 458
 		f 4 848 839 -850 -810
@@ -5293,25 +5305,25 @@ createNode mesh -n "TreeShape" -p "Tree";
 		f 4 855 846 -857 -817
 		mu 0 4 465 475 476 466
 		f 4 -467 857 867 -838
-		mu 0 4 247 247 467 467
+		mu 0 4 615 629 630 467
 		f 4 -868 858 868 -839
-		mu 0 4 467 467 468 468
+		mu 0 4 467 630 631 468
 		f 4 -869 859 869 -840
-		mu 0 4 468 468 469 469
+		mu 0 4 468 631 632 469
 		f 4 -870 860 870 -841
-		mu 0 4 469 469 470 470
+		mu 0 4 469 632 633 470
 		f 4 -871 861 871 -842
-		mu 0 4 470 470 471 471
+		mu 0 4 470 633 634 471
 		f 4 -872 862 872 -843
-		mu 0 4 471 471 472 472
+		mu 0 4 471 634 635 472
 		f 4 -873 863 873 -844
-		mu 0 4 472 472 473 473
+		mu 0 4 472 635 636 473
 		f 4 -874 864 874 -845
-		mu 0 4 473 473 474 474
+		mu 0 4 473 636 637 474
 		f 4 -875 865 875 -846
-		mu 0 4 474 474 475 475
+		mu 0 4 474 637 638 475
 		f 4 -876 866 876 -847
-		mu 0 4 475 475 476 476
+		mu 0 4 475 638 616 476
 		f 4 -664 817 888 -879
 		mu 0 4 365 364 447 477
 		f 4 -889 818 889 -880
@@ -5333,61 +5345,61 @@ createNode mesh -n "TreeShape" -p "Tree";
 		f 4 -897 826 897 -888
 		mu 0 4 485 455 456 486
 		f 4 -414 898 908 -858
-		mu 0 4 247 247 467 467
+		mu 0 4 629 618 639 630
 		f 4 -909 899 909 -859
-		mu 0 4 467 467 468 468
+		mu 0 4 630 639 640 631
 		f 4 -910 900 910 -860
-		mu 0 4 468 468 469 469
+		mu 0 4 631 640 641 632
 		f 4 -911 901 911 -861
-		mu 0 4 469 469 470 470
+		mu 0 4 632 641 642 633
 		f 4 -912 902 912 -862
-		mu 0 4 470 470 471 471
+		mu 0 4 633 642 643 634
 		f 4 -913 903 913 -863
-		mu 0 4 471 471 472 472
+		mu 0 4 634 643 644 635
 		f 4 -914 904 914 -864
-		mu 0 4 472 472 473 473
+		mu 0 4 635 644 645 636
 		f 4 -915 905 915 -865
-		mu 0 4 473 473 474 474
+		mu 0 4 636 645 646 637
 		f 4 -916 906 916 -866
-		mu 0 4 474 474 475 475
+		mu 0 4 637 646 647 638
 		f 4 -917 907 917 -867
-		mu 0 4 475 475 476 476
+		mu 0 4 638 647 617 616
 		f 4 -663 878 918 -899
-		mu 0 4 247 365 477 467
+		mu 0 4 618 365 477 639
 		f 4 -919 879 919 -900
-		mu 0 4 467 477 478 468
+		mu 0 4 639 477 478 640
 		f 4 -920 880 920 -901
-		mu 0 4 468 478 479 469
+		mu 0 4 640 478 479 641
 		f 4 -921 881 921 -902
-		mu 0 4 469 479 480 470
+		mu 0 4 641 479 480 642
 		f 4 -922 882 922 -903
-		mu 0 4 470 480 481 471
+		mu 0 4 642 480 481 643
 		f 4 -923 883 923 -904
-		mu 0 4 471 481 482 472
+		mu 0 4 643 481 482 644
 		f 4 -924 884 924 -905
-		mu 0 4 472 482 483 473
+		mu 0 4 644 482 483 645
 		f 4 -925 885 925 -906
-		mu 0 4 473 483 484 474
+		mu 0 4 645 483 484 646
 		f 4 -926 886 926 -907
-		mu 0 4 474 484 485 475
+		mu 0 4 646 484 485 647
 		f 4 -927 887 927 -908
-		mu 0 4 475 485 486 476
+		mu 0 4 647 485 486 617
 		f 3 514 929 -929
-		mu 0 3 292 487 285
+		mu 0 3 648 487 649
 		f 3 -529 928 -931
-		mu 0 3 285 299 488
+		mu 0 3 650 651 488
 		f 3 -549 931 -933
 		mu 0 3 306 489 313
 		f 3 -556 930 -932
-		mu 0 3 299 313 490
+		mu 0 3 652 653 490
 		f 3 568 933 -930
-		mu 0 3 292 491 320
+		mu 0 3 292 491 654
 		f 3 582 934 -934
 		mu 0 3 320 327 492
 		f 3 596 935 -935
 		mu 0 3 327 334 493
 		f 3 -604 932 -936
-		mu 0 3 306 494 334
+		mu 0 3 655 494 656
 		f 4 -548 936 956 -947
 		mu 0 4 305 312 505 495
 		f 4 -957 937 957 -948
@@ -5409,7 +5421,7 @@ createNode mesh -n "TreeShape" -p "Tree";
 		f 4 -965 945 965 -956
 		mu 0 4 503 513 514 504
 		f 4 548 977 -988 -967
-		mu 0 4 313 306 525 515
+		mu 0 4 657 306 525 515
 		f 4 987 978 -989 -968
 		mu 0 4 515 525 526 516
 		f 4 988 979 -990 -969
@@ -5490,7 +5502,7 @@ createNode mesh -n "TreeShape" -p "Tree";
 		f 4 1045 1036 -1047 -1017
 		mu 0 4 543 553 554 544
 		f 4 555 966 -1048 -1028
-		mu 0 4 299 313 515 545
+		mu 0 4 299 657 515 545
 		f 4 1047 967 -1049 -1029
 		mu 0 4 545 515 516 546
 		f 4 1048 968 -1050 -1030
@@ -7480,6 +7492,8 @@ createNode transform -n "FencePole";
 	rename -uid "6BA2F2F4-493B-0D2F-F957-D9B91A913011";
 createNode transform -n "pCylinder1" -p "FencePole";
 	rename -uid "9F798F31-4DE5-74C2-5B19-5F8325A46179";
+	setAttr ".t" -type "double3" 0 0.054216041654415736 0 ;
+	setAttr ".s" -type "double3" 0.53679773756941596 1 0.53679773756941596 ;
 	setAttr ".rp" -type "double3" -0.13601381160272452 0.92514598256242864 -2.5422766138014072 ;
 	setAttr ".sp" -type "double3" -0.13601381160272452 0.92514598256242864 -2.5422766138014072 ;
 createNode mesh -n "pCylinderShape1" -p "pCylinder1";
@@ -7636,6 +7650,7 @@ createNode mesh -n "pCylinderShape1" -p "pCylinder1";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "pCylinder2" -p "FencePole";
 	rename -uid "62D2CB78-45EB-4975-33D7-FC99A34CCB14";
+	setAttr ".s" -type "double3" 0.49223741811054639 1 0.49223741811054639 ;
 	setAttr ".rp" -type "double3" -0.46598985166270157 1.1850227238634745 -2.5422766138014072 ;
 	setAttr ".sp" -type "double3" -0.46598985166270157 1.1850227238634745 -2.5422766138014072 ;
 createNode mesh -n "pCylinderShape2" -p "pCylinder2";
@@ -7792,6 +7807,7 @@ createNode mesh -n "pCylinderShape2" -p "pCylinder2";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "pCylinder3" -p "FencePole";
 	rename -uid "710EE68B-40D2-932C-A1DA-56AF087B2733";
+	setAttr ".s" -type "double3" 0.50654005863842511 1 0.50654005863842511 ;
 	setAttr ".rp" -type "double3" -0.78793025312054732 1.0069805240519789 -2.5422766138014072 ;
 	setAttr ".sp" -type "double3" -0.78793025312054732 1.0069805240519789 -2.5422766138014072 ;
 createNode mesh -n "pCylinderShape3" -p "pCylinder3";
@@ -7948,6 +7964,7 @@ createNode mesh -n "pCylinderShape3" -p "pCylinder3";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "pCylinder4" -p "FencePole";
 	rename -uid "FE7457D7-4F70-A696-FE44-459E8C3D3D43";
+	setAttr ".s" -type "double3" 0.50567454476870066 1 0.50567454476870066 ;
 	setAttr ".rp" -type "double3" -1.1997388580871926 1.1427733757210203 -2.5422766138014072 ;
 	setAttr ".sp" -type "double3" -1.1997388580871926 1.1427733757210203 -2.5422766138014072 ;
 createNode mesh -n "pCylinderShape4" -p "pCylinder4";
@@ -8104,6 +8121,7 @@ createNode mesh -n "pCylinderShape4" -p "pCylinder4";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "pCylinder5" -p "FencePole";
 	rename -uid "859E71F8-48EF-291A-D066-1E8990CB0071";
+	setAttr ".s" -type "double3" 0.48029605049001206 1 0.48029605049001206 ;
 	setAttr ".rp" -type "double3" -1.5325589697538093 1.0300092175867441 -2.5422766138014072 ;
 	setAttr ".sp" -type "double3" -1.5325589697538093 1.0300092175867441 -2.5422766138014072 ;
 createNode mesh -n "pCylinderShape5" -p "pCylinder5";
@@ -8260,6 +8278,7 @@ createNode mesh -n "pCylinderShape5" -p "pCylinder5";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "pCylinder6" -p "FencePole";
 	rename -uid "BFA1F3D2-4B3F-E190-6442-E3ACE643DE29";
+	setAttr ".s" -type "double3" 0.53239754261653949 1 0.53239754261653949 ;
 	setAttr ".rp" -type "double3" -1.887788896293265 0.97442927570715709 -2.5422766138014072 ;
 	setAttr ".sp" -type "double3" -1.887788896293265 0.97442927570715709 -2.5422766138014072 ;
 createNode mesh -n "pCylinderShape6" -p "pCylinder6";
@@ -8416,6 +8435,7 @@ createNode mesh -n "pCylinderShape6" -p "pCylinder6";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "pCylinder7" -p "FencePole";
 	rename -uid "687CAF89-4A5A-2113-B484-ABB2C4EF563B";
+	setAttr ".s" -type "double3" 0.48952816345115041 1 0.48952816345115041 ;
 	setAttr ".rp" -type "double3" -2.2468542052527405 0.96473155671976896 -2.5422766138014072 ;
 	setAttr ".sp" -type "double3" -2.2468542052527405 0.96473155671976896 -2.5422766138014072 ;
 createNode mesh -n "pCylinderShape7" -p "pCylinder7";
@@ -8572,6 +8592,7 @@ createNode mesh -n "pCylinderShape7" -p "pCylinder7";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "pCylinder8" -p "FencePole";
 	rename -uid "AB00F2A2-4176-9200-75E0-8C9BF54B6C1C";
+	setAttr ".s" -type "double3" 0.55723965276395615 1 0.55723965276395615 ;
 	setAttr ".rp" -type "double3" -2.6318122221455202 1.0605514166271288 -2.5422766138014072 ;
 	setAttr ".sp" -type "double3" -2.6318122221455202 1.0605514166271288 -2.5422766138014072 ;
 createNode mesh -n "pCylinderShape8" -p "pCylinder8";
@@ -8728,6 +8749,7 @@ createNode mesh -n "pCylinderShape8" -p "pCylinder8";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "pCylinder9" -p "FencePole";
 	rename -uid "A8A34E95-4411-6977-CC29-B2BFC2DA59F3";
+	setAttr ".s" -type "double3" 0.4812360934947742 1 0.4812360934947742 ;
 	setAttr ".rp" -type "double3" -2.6318122221455202 0.9311170596313576 -2.2149419977848872 ;
 	setAttr ".sp" -type "double3" -2.6318122221455202 0.9311170596313576 -2.2149419977848872 ;
 createNode mesh -n "pCylinderShape9" -p "pCylinder9";
@@ -8884,6 +8906,7 @@ createNode mesh -n "pCylinderShape9" -p "pCylinder9";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "pCylinder10" -p "FencePole";
 	rename -uid "49B36FCB-44DD-5466-F53D-E5BEC1482FCB";
+	setAttr ".s" -type "double3" 0.45089867476336465 1 0.45089867476336465 ;
 	setAttr ".rp" -type "double3" -2.6318122221455202 0.89329619843633901 -1.8715841028886184 ;
 	setAttr ".sp" -type "double3" -2.6318122221455202 0.89329619843633901 -1.8715841028886184 ;
 createNode mesh -n "pCylinderShape10" -p "pCylinder10";
@@ -9040,6 +9063,7 @@ createNode mesh -n "pCylinderShape10" -p "pCylinder10";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "pCylinder11" -p "FencePole";
 	rename -uid "2E7651AB-4990-EBB3-706F-0E9D979E2FDD";
+	setAttr ".s" -type "double3" 0.49350793613211663 1 0.49350793613211663 ;
 	setAttr ".rp" -type "double3" -2.6318122221455202 0.87194446117849589 -1.4899820911978976 ;
 	setAttr ".sp" -type "double3" -2.6318122221455202 0.87194446117849589 -1.4899820911978976 ;
 createNode mesh -n "pCylinderShape11" -p "pCylinder11";
@@ -9196,6 +9220,7 @@ createNode mesh -n "pCylinderShape11" -p "pCylinder11";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "pCylinder12" -p "FencePole";
 	rename -uid "5827E1A4-4756-A097-091C-91A715D89D72";
+	setAttr ".s" -type "double3" 0.54043608331297333 1 0.54043608331297333 ;
 	setAttr ".rp" -type "double3" -2.6318122221455202 0.94500481214557563 -1.0973519760453683 ;
 	setAttr ".sp" -type "double3" -2.6318122221455202 0.94500481214557563 -1.0973519760453683 ;
 createNode mesh -n "pCylinderShape12" -p "pCylinder12";
@@ -9352,6 +9377,8 @@ createNode mesh -n "pCylinderShape12" -p "pCylinder12";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "pCylinder13" -p "FencePole";
 	rename -uid "1EE171B7-4773-465D-D117-1892DFEDA12E";
+	setAttr ".t" -type "double3" 0 -0.062424843282107734 0 ;
+	setAttr ".s" -type "double3" 0.55054855834165273 1 0.55054855834165273 ;
 	setAttr ".rp" -type "double3" -2.6318122221455202 1.0621212317998556 -0.72327186446378477 ;
 	setAttr ".sp" -type "double3" -2.6318122221455202 1.0621212317998556 -0.72327186446378477 ;
 createNode mesh -n "pCylinderShape13" -p "pCylinder13";
@@ -9510,6 +9537,8 @@ createNode transform -n "FenceHolder";
 	rename -uid "1EA8AF19-407A-71B8-7BDF-10B34D22F2E8";
 createNode transform -n "pCube19" -p "FenceHolder";
 	rename -uid "E471CB74-4F89-0CDD-6972-B89A2B818495";
+	setAttr ".t" -type "double3" 0 -0.026668901070195705 0 ;
+	setAttr ".s" -type "double3" 1 0.63205106693886937 1 ;
 	setAttr ".rp" -type "double3" -2.6444291205421111 1.3010581984841314 -1.5838288089642949 ;
 	setAttr ".sp" -type "double3" -2.6444291205421111 1.3010581984841314 -1.5838288089642949 ;
 createNode mesh -n "pCubeShape19" -p "pCube19";
@@ -9565,6 +9594,8 @@ createNode mesh -n "pCubeShape19" -p "pCube19";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "pCube18" -p "FenceHolder";
 	rename -uid "EC21EB42-491E-7370-DAD0-C5B1346DB15B";
+	setAttr ".t" -type "double3" 0 -0.097091630315083943 0 ;
+	setAttr ".s" -type "double3" 1 0.65904923878370514 1 ;
 	setAttr ".rp" -type "double3" -1.3931160568013863 1.4194721246200648 -2.5685071966735902 ;
 	setAttr ".sp" -type "double3" -1.3931160568013863 1.4194721246200648 -2.5685071966735902 ;
 createNode mesh -n "pCubeShape18" -p "pCube18";
@@ -9618,16 +9649,82 @@ createNode mesh -n "pCubeShape18" -p "pCube18";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "aiSkyDomeLight1";
+	rename -uid "C75EA769-485C-29BA-D2ED-AD882B5E6F85";
+createNode aiSkyDomeLight -n "aiSkyDomeLightShape1" -p "aiSkyDomeLight1";
+	rename -uid "C86B41C0-4FA1-E606-210C-5DAF0F828F28";
+	setAttr -k off ".v";
+createNode transform -n "directionalLight1";
+	rename -uid "8B3C6F32-4939-B6A6-83C3-38BBB38DCAF5";
+	setAttr ".t" -type "double3" 4.3570787945894471 1.9186883930836864 -0.42926095536449327 ;
+	setAttr ".r" -type "double3" 2.5799397143111125 104.03260301792216 2.6899292815726583 ;
+	setAttr ".s" -type "double3" 0.99999999999999989 0.99999999999999989 1 ;
+	setAttr ".rp" -type "double3" -3.3306690738754686e-16 -4.4408920985006252e-16 0 ;
+	setAttr ".rpt" -type "double3" 4.1518637243271234e-16 3.8189549338705498e-18 3.2797452217921549e-16 ;
+	setAttr ".sp" -type "double3" -3.3306690738754696e-16 -4.4408920985006262e-16 0 ;
+	setAttr ".spt" -type "double3" 9.8607613152626465e-32 9.8607613152626465e-32 0 ;
+createNode directionalLight -n "directionalLightShape1" -p "directionalLight1";
+	rename -uid "2E7D42E2-4FAC-436C-736A-578DAE8EBBC3";
+	setAttr -k off ".v";
+	setAttr ".cl" -type "float3" 0.324 0.34204924 1 ;
+	setAttr ".in" 2.3717949390411377;
+	setAttr ".ai_exposure" -1.6883116960525513;
+createNode transform -n "directionalLight2";
+	rename -uid "FEFE8D37-4566-101B-C58E-C095E12FFCFC";
+	setAttr ".t" -type "double3" -0.28202348716649706 2.0325862147514631 4.5979405238289539 ;
+	setAttr ".r" -type "double3" 0 58.756748334075375 0 ;
+createNode directionalLight -n "directionalLightShape2" -p "directionalLight2";
+	rename -uid "EA00AD1A-4FFD-EEF4-88EB-BE87A3AD0599";
+	setAttr -k off ".v";
+	setAttr ".cl" -type "float3" 0.25837517 0.21600002 1 ;
+	setAttr ".in" 3.0128204822540283;
+createNode transform -n "directionalLight3";
+	rename -uid "D9B9E4FE-4ECD-B1B8-6D83-D4960ECB313D";
+	setAttr ".t" -type "double3" -3.9275546092647833 1.7512103223683835 0.012447910068605905 ;
+	setAttr ".r" -type "double3" 0 261.76189248411032 0 ;
+createNode directionalLight -n "directionalLightShape3" -p "directionalLight3";
+	rename -uid "6D49B664-4089-7D15-866C-F5A048925C57";
+	setAttr -k off ".v";
+	setAttr ".cl" -type "float3" 0.33688903 0.29900002 1 ;
+	setAttr ".in" 2.6785714626312256;
+createNode transform -n "pointLight1";
+	rename -uid "42FDD267-46B4-80A6-397E-D899D94EEFA4";
+	setAttr ".t" -type "double3" 2.2086581879760105 1.6848585939857628 0.31262634930619049 ;
+	setAttr ".s" -type "double3" 0.57778343097321094 0.57778343097321094 1 ;
+	setAttr ".rp" -type "double3" 0 2.5658738732535144e-16 0 ;
+	setAttr ".sp" -type "double3" 0 4.4408920985006262e-16 0 ;
+	setAttr ".spt" -type "double3" 0 -1.8750182252471117e-16 0 ;
+createNode pointLight -n "pointLightShape2" -p "pointLight1";
+	rename -uid "66988448-4B7F-1FE7-4D84-CF8881FAED73";
+	setAttr -k off ".v";
+	setAttr ".cl" -type "float3" 0 0.91859984 1 ;
+	setAttr ".in" 10;
+	setAttr ".urs" no;
+createNode transform -n "aiAreaLight1";
+	rename -uid "4BF7C9B1-4D18-74DC-9EA9-4FA7D7CA8B6E";
+	setAttr ".rp" -type "double3" 3.3480047255335905 2.3537634699828724 1.1827483946257831 ;
+	setAttr ".sp" -type "double3" 3.3480047255335905 2.3537634699828724 1.1827483946257831 ;
+createNode aiAreaLight -n "aiAreaLightShape1" -p "aiAreaLight1";
+	rename -uid "276025C5-4A00-2259-7C18-9692EFDA3A1F";
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
+	setAttr -k off ".v";
+	setAttr ".csh" no;
+	setAttr ".rcsh" no;
+	setAttr ".lp" -type "double3" 3.3480047255335905 2.3537634699828724 1.1827483946257831 ;
+	setAttr ".sc" -type "float3" 0.92797399 0.46700001 1 ;
+	setAttr ".intensity" 5.5128207206726074;
+	setAttr ".ai_translator" -type "string" "quad";
+	setAttr ".aal" -type "attributeAlias" 4 "exposure" "aiExposure" "normalize" "aiNormalize" ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "C2CA08E3-416A-73B9-F0A0-7C8C444D05CE";
+	rename -uid "D0C6C832-4F74-662A-7A08-E983BC6C6B55";
 	setAttr -s 6 ".lnk";
 	setAttr -s 6 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "E506E988-4206-5EE2-2638-5484B162CBB1";
+	rename -uid "F4CAEBA7-4A47-70C6-E83A-E3B3F61D55D3";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "51E31EA8-4C50-097F-2D11-EAACC8ABCD5B";
+	rename -uid "8ECC5ACE-4996-2ACA-B252-4B89C910E66A";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "11C8AFD6-46AC-84F9-B327-A1A45F5264F0";
+	rename -uid "432AC2ED-4105-20A3-8848-2B9F0EBEF452";
 	setAttr ".cdl" 3;
 	setAttr -s 4 ".dli[1:3]"  1 2 3;
 	setAttr -s 2 ".dli";
@@ -9635,7 +9732,7 @@ createNode displayLayer -n "defaultLayer";
 	rename -uid "4FF6A962-4F72-645B-FA7A-898D06D2F9B4";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "11C687F6-4211-1A97-9C24-87AF12D693C9";
+	rename -uid "390EA773-4330-0DFB-07FA-FB980E8193FF";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "2F4EDED7-4EE3-9D94-8AFD-A7A93D73A476";
 	setAttr ".g" yes;
@@ -9692,6 +9789,7 @@ createNode script -n "sceneConfigurationScriptNode";
 	setAttr ".st" 6;
 createNode aiOptions -s -n "defaultArnoldRenderOptions";
 	rename -uid "5D15A524-429B-C888-BCA9-9BBA9196BD76";
+	addAttr -ci true -sn "ARV_options" -ln "ARV_options" -dt "string";
 	setAttr ".version" -type "string" "5.4.5";
 createNode aiAOVFilter -s -n "defaultArnoldFilter";
 	rename -uid "364B8A99-4247-F9F9-289B-E896E9747AA7";
@@ -9716,7 +9814,7 @@ createNode materialInfo -n "materialInfo1";
 	rename -uid "E3AE7513-4091-F901-444B-F9A89F70A8B6";
 createNode lambert -n "TreeColor";
 	rename -uid "B2C54146-4907-0454-B121-03A246122B51";
-	setAttr ".c" -type "float3" 0.084546976 0.034989003 0.107 ;
+	setAttr ".c" -type "float3" 0.48717949 0.48717949 0.48717949 ;
 createNode shadingEngine -n "lambert2SG";
 	rename -uid "B67BFD9E-4EE7-5567-12C4-7D9661E7112E";
 	setAttr ".ihi" 0;
@@ -9725,7 +9823,7 @@ createNode materialInfo -n "materialInfo2";
 	rename -uid "A0055560-4291-383E-C1A5-AD92A8D1D073";
 createNode lambert -n "CryptColor";
 	rename -uid "E01A553F-4178-B2BB-BB11-7890891723BA";
-	setAttr ".c" -type "float3" 0.1274066 0.055717953 0.26282051 ;
+	setAttr ".c" -type "float3" 0.44230768 0.44230768 0.44230768 ;
 createNode shadingEngine -n "lambert3SG";
 	rename -uid "7B4D346A-48D0-4275-A893-0CAEFD5F03F2";
 	setAttr ".ihi" 0;
@@ -9752,6 +9850,15 @@ createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
 	setAttr ".tgi[0].vl" -type "double2" -44.047617297323995 -399.99998410542872 ;
 	setAttr ".tgi[0].vh" -type "double2" 373.80950895566849 44.047617297323995 ;
+createNode aiPhysicalSky -n "aiPhysicalSky1";
+	rename -uid "2DC31DCF-4475-E07B-290B-D3B9498B0023";
+	setAttr ".turbidity" 1;
+	setAttr ".ground_albedo" -type "float3" 0 0 0 ;
+	setAttr ".elevation" 28.392856597900391;
+	setAttr ".azimuth" 117.85713958740234;
+	setAttr ".sun_tint" -type "float3" 0.58254319 0.39700001 1 ;
+	setAttr ".sky_tint" -type "float3" 0 0 0 ;
+	setAttr ".intensity" 3.0464286804199219;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -9770,6 +9877,8 @@ select -ne :defaultShaderList1;
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderingList1;
+select -ne :lightList1;
+	setAttr -s 6 ".l";
 select -ne :standardSurface1;
 	setAttr ".bc" -type "float3" 0.40000001 0.40000001 0.40000001 ;
 	setAttr ".sr" 0.5;
@@ -9784,6 +9893,8 @@ select -ne :defaultRenderGlobals;
 	setAttr ".dss" -type "string" "standardSurface1";
 select -ne :defaultResolution;
 	setAttr ".pa" 1;
+select -ne :defaultLightSet;
+	setAttr -s 6 ".dsm";
 select -ne :defaultColorMgtGlobals;
 	setAttr ".cfe" yes;
 	setAttr ".cfp" -type "string" "<MAYA_RESOURCES>/OCIO-configs/Maya2022-default/config.ocio";
@@ -9799,6 +9910,7 @@ select -ne :hardwareRenderGlobals;
 select -ne :ikSystem;
 	setAttr -s 4 ".sol";
 connectAttr "Ground.di" "GraveyardFlooring.do";
+connectAttr "aiPhysicalSky1.out" "aiSkyDomeLightShape1.sc";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "standardSurface2SG.message" ":defaultLightSet.message";
@@ -9857,6 +9969,12 @@ connectAttr "TreeColor.msg" ":defaultShaderList1.s" -na;
 connectAttr "CryptColor.msg" ":defaultShaderList1.s" -na;
 connectAttr "RockColor.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
+connectAttr "aiSkyDomeLightShape1.ltd" ":lightList1.l" -na;
+connectAttr "directionalLightShape1.ltd" ":lightList1.l" -na;
+connectAttr "directionalLightShape2.ltd" ":lightList1.l" -na;
+connectAttr "directionalLightShape3.ltd" ":lightList1.l" -na;
+connectAttr "pointLightShape2.ltd" ":lightList1.l" -na;
+connectAttr "aiAreaLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "GraveyardFlooringShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "CrossGravestone1Shape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "CrossGravestone2Shape.iog" ":initialShadingGroup.dsm" -na;
@@ -9878,4 +9996,10 @@ connectAttr "pCylinderShape12.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pCylinderShape13.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pCubeShape18.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pCubeShape19.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "aiSkyDomeLight1.iog" ":defaultLightSet.dsm" -na;
+connectAttr "directionalLight1.iog" ":defaultLightSet.dsm" -na;
+connectAttr "directionalLight2.iog" ":defaultLightSet.dsm" -na;
+connectAttr "directionalLight3.iog" ":defaultLightSet.dsm" -na;
+connectAttr "pointLight1.iog" ":defaultLightSet.dsm" -na;
+connectAttr "aiAreaLight1.iog" ":defaultLightSet.dsm" -na;
 // End of Lab 6.ma
